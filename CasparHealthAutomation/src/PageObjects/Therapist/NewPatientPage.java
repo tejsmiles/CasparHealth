@@ -35,9 +35,11 @@ public class NewPatientPage extends PageObject {
 	@FindBy(linkText="SAVE")
 	WebElement buttonSave;
 
+	TherapistDashboardPage therapistDB;
 
-	public NewPatientPage(WebDriver driver) {
+	public NewPatientPage(WebDriver driver, TherapistDashboardPage therapistDB) {
 		super(driver);
+		this.therapistDB = therapistDB;
 	}
 
 
@@ -51,19 +53,19 @@ public class NewPatientPage extends PageObject {
 		this.inputLastName.sendKeys(lastname);
 	}
 	
-	public void selectDOB(String day, String month, String year) {
+	public void fillDOB(String day, String month, String year) {
 		this.selectDay.sendKeys(day);
 		this.selectMonth.sendKeys(month);
 		this.selectYear.sendKeys(year);
 	}
 	
-	public void selectCountry(String country) {
+	public void fillCountry(String country) {
 		this.selectCountry.sendKeys(country);
 	}
 	
-	public TherapistDashboardPage submit() {
+	public TherapistDashboardPage newPatientSave() {
 		this.buttonSave.click();
-		return new TherapistDashboardPage(driver);
+		return this.therapistDB;
 	}
 
 }

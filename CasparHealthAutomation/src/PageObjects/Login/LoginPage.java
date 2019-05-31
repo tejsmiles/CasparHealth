@@ -35,6 +35,10 @@ public class LoginPage extends PageObject {
 		this.inputPassword.clear();
 		this.inputPassword.sendKeys(password);
 	}
+
+	public boolean isDisplayed(String title) {
+		return driver.getTitle().equalsIgnoreCase(title);
+	}
 	
 	public UserDashboardPage userLogin() {
 		this.buttonLogin.click();
