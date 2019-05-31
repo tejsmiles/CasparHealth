@@ -3,30 +3,44 @@ package PageObjects.Therapist;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import PageObjects.Common.PageObject;
 import PageObjects.Login.LoginPage;
 
 public class TherapistDashboardPage extends PageObject {
 
-	@FindBy(linkText="Add Patient")
+	@FindBy(xpath="//button[contains(text(), 'Add Patient')]")
 	WebElement buttonAddPatient;
 	
-	@FindBy(linkText="Sign out")
+	@FindBy(xpath="//div[contains(text(),'Sign out')]")
 	WebElement menuSignout;
 	
-	public TherapistDashboardPage(WebDriver driver) {
-		super(driver);
+	
+	
+	public TherapistDashboardPage(WebDriver driver, WebDriverWait wait) {
+		super(driver, wait);
+	}
+	
+	public boolean isDisplayed() {
+		wait.until(ExpectedConditions.visibilityOf(this.buttonAddPatient));
+		return this.buttonAddPatient.isDisplayed();
 	}
 	
 	public NewPatientPage clickAddPatient() {
 		this.buttonAddPatient.click();
-		return new NewPatientPage(driver, this);
+		return new NewPatientPage(driver,wait, this);
 	}
 	
 	public LoginPage signout() {
 		this.menuSignout.click();
-		return new LoginPage(driver);
+		return new LoginPage(driver, wait);
 	}
-	
+
+	public boolean patientCredentialsDisplayed() {
+		//wait.until(ExpectedConditions.visibilityOf(this.inputUserName));
+		//TODO "//app-new-user-dialog//div[contains(@class,'mt-3')]/div/div"
+		return false;
+	}
 }

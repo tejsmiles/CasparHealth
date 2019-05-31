@@ -2,13 +2,17 @@ package PageObjects.Common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageObject {
 	protected WebDriver driver;
+	protected WebDriverWait wait;
 	
-	public PageObject(WebDriver driver) {
+	public PageObject(WebDriver driver, WebDriverWait wait) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		this.wait = wait;
+		PageFactory.initElements(driver, this);	
 	}
 	
 }

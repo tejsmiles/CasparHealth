@@ -1,8 +1,11 @@
 package PageObjects.Therapist;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import PageObjects.Common.PageObject;
 
@@ -32,13 +35,13 @@ public class NewPatientPage extends PageObject {
 	@FindBy(id="mat-select-8")
 	WebElement selectCountry;
 
-	@FindBy(linkText="SAVE")
+	@FindBy(xpath="//button[contains(text(), 'SAVE')]")
 	WebElement buttonSave;
 
 	TherapistDashboardPage therapistDB;
 
-	public NewPatientPage(WebDriver driver, TherapistDashboardPage therapistDB) {
-		super(driver);
+	public NewPatientPage(WebDriver driver, WebDriverWait wait, TherapistDashboardPage therapistDB) {
+		super(driver, wait);
 		this.therapistDB = therapistDB;
 	}
 
@@ -66,6 +69,12 @@ public class NewPatientPage extends PageObject {
 	public TherapistDashboardPage newPatientSave() {
 		this.buttonSave.click();
 		return this.therapistDB;
+	}
+
+
+	public boolean isDisplayed() {
+		wait.until(ExpectedConditions.visibilityOf(this.inputFirstName));
+		return this.inputFirstName.isDisplayed();
 	}
 
 }
