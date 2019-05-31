@@ -1,7 +1,8 @@
-package Test;
+package Test.FunctionalTests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import PageObjects.Login.LoginPage;
@@ -9,10 +10,12 @@ import PageObjects.Therapist.NewPatientPage;
 import PageObjects.Therapist.TherapistDashboardPage;
 import PageObjects.User.UserTermsPage;
 
-public class taskUserFlow {
+public class TaskUserFlowTest extends FunctionalTest{
+	
 	WebDriver driver;
 	String baseURL="https://beta.caspar-health.com/en/#/user/sign_in ";
 	
+	@Test
 	public void userFlow() {
 		//Step 1) Navigate to “ https://beta.caspar-health.com/en/#/user/sign_in ”
 		driver.get(baseURL);
