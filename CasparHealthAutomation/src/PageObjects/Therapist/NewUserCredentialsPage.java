@@ -29,7 +29,7 @@ public class NewUserCredentialsPage  extends PageObject {
 
 	public boolean patientCredentialsDisplayed() {
 		wait.until(ExpectedConditions.visibilityOf(this.credentials.get(0)));
-		return false;
+		return this.closePopUp.isDisplayed();
 	}
 	
 	public String getNewUsername(){
