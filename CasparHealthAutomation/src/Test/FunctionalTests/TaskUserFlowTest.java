@@ -4,10 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import PageObjects.Login.LoginPage;
 import PageObjects.Therapist.NewPatientPage;
 import PageObjects.Therapist.NewUserCredentialsPage;
