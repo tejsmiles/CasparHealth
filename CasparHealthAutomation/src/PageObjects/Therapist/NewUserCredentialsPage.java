@@ -17,7 +17,7 @@ public class NewUserCredentialsPage  extends PageObject {
 	@FindAll({@FindBy(xpath="//app-new-user-dialog//div[contains(@class,'mt-3')]/div/div")})
 	List<WebElement> credentials;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//app-new-user-dialog//button[@aria-label='Close dialog']")
 	WebElement closePopUp;
 	
 	TherapistDashboardPage tdb;
