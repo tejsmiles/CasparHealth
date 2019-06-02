@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import PageObjects.Login.LoginPage;
 import PageObjects.Therapist.NewPatientPage;
+import PageObjects.Therapist.NewUserCredentialsPage;
 import PageObjects.Therapist.TherapistDashboardPage;
 import PageObjects.User.UserTermsPage;
 
@@ -45,27 +46,28 @@ public class TaskUserFlowTest extends FunctionalTest{
 		newPatientPage.fillLastName("Patient");
 		newPatientPage.fillDOB("5", "January", "2006");
 		newPatientPage.fillCountry("Germany");
-		therapistDB = newPatientPage.newPatientSave();
+		NewUserCredentialsPage newUserCredentialsPage = newPatientPage.newPatientSave();
 
-		assertTrue(therapistDB.patientCredentialsDisplayed());
+		assertTrue(newUserCredentialsPage.patientCredentialsDisplayed());
 
 		//Step 4) Use the login credentials of the patient
+		
+		String username = newUserCredentialsPage.getNewUsername();
+		String password = newUserCredentialsPage.getNewPassword();
+		
+		//Close pop up
+		therapistDB = newUserCredentialsPage.credentialsClose();
 
-		//TODO extract username and password
-		String username = "", password = ""	;
-		//TODO close pop up
-
-		System.out.println("4: " + driver.getCurrentUrl());
+		
 		//Step 5) Logout the user
 		loginPage = therapistDB.signout();
 
-		System.out.println("5: " + driver.getCurrentUrl());
+		
 		//Step 6) Login as the new patient on the same url like provided in step 1
 		loginPage.fillUserName(username);
 		loginPage.fillPassword(password);
 		UserTermsPage userTermsPage = loginPage.userFirstLogin();
 
-		System.out.println("6: " + driver.getCurrentUrl());
 		//Step 7) Check that the t&c and release of medical information page is displayed. 
 
 		assertTrue(userTermsPage.isTermsConditionsDisplayed());	

@@ -17,8 +17,6 @@ public class TherapistDashboardPage extends PageObject {
 	@FindBy(xpath="//div[contains(text(),'Sign out')]")
 	WebElement menuSignout;
 	
-	
-	
 	public TherapistDashboardPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
 	}
@@ -38,9 +36,5 @@ public class TherapistDashboardPage extends PageObject {
 		return new LoginPage(driver, wait);
 	}
 
-	public boolean patientCredentialsDisplayed() {
-		//wait.until(ExpectedConditions.visibilityOf(this.inputUserName));
-		//TODO "//app-new-user-dialog//div[contains(@class,'mt-3')]/div/div"
-		return false;
-	}
+
 }

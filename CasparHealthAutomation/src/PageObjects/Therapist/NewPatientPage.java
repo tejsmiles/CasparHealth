@@ -37,7 +37,6 @@ public class NewPatientPage extends PageObject {
 
 	@FindBy(xpath="//button[contains(text(), 'SAVE')]")
 	WebElement buttonSave;
-
 	TherapistDashboardPage therapistDB;
 
 	public NewPatientPage(WebDriver driver, WebDriverWait wait, TherapistDashboardPage therapistDB) {
@@ -66,9 +65,9 @@ public class NewPatientPage extends PageObject {
 		this.selectCountry.sendKeys(country);
 	}
 	
-	public TherapistDashboardPage newPatientSave() {
+	public NewUserCredentialsPage newPatientSave() {
 		this.buttonSave.click();
-		return this.therapistDB;
+		return new NewUserCredentialsPage(driver, wait, this.therapistDB);
 	}
 
 
