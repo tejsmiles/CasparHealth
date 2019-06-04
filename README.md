@@ -15,6 +15,12 @@ I have downloaded all the required files for running the automation on MacOS and
 CasperHealth folder contains CasparHealthAutomation which is an eclipse project. To set up open eclipse import CasparHealthAutomation project. In project > properties > Java Build Path > Libraries > Add external jars select all the 8 selenium and junit jar files from lib folder inside CasparHealthAutomation. Also in In project > properties > Java Build Path > Libraries > Add Library select the junit library
 In CasparHealthAutomation there is a config.properties file, please update path to chromedriver executable
 
+I have used Page Object Model for setting up the Tests
+
 Right click on Project and select "Run as" > "JUnit Test" 
 
 Screencast of execution with eclipse: https://youtu.be/gPIKZCm1kuM
+
+
+I have also set up a basic structure of BDD solution in CasperHealthBDD https://github.com/tejsmiles/CasparHealthBDD
+
