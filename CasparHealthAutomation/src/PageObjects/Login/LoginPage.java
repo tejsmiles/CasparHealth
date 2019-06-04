@@ -12,12 +12,11 @@ import PageObjects.User.UserTermsPage;
 
 public class LoginPage extends PageObject {
 
-	//Username: mat-input-0
-	@FindBy(id="mat-input-0")
+
+	@FindBy(name="login")
 	WebElement inputUserName;
 	
-	//Password: mat-input-1
-	@FindBy(id="mat-input-1")
+	@FindBy(name="password")
 	WebElement inputPassword;
 	
 	@FindBy(xpath="//form//button[contains(@class, 'login')]")

@@ -10,10 +10,10 @@ import PageObjects.Common.PageObject;
 
 public class UserTermsPage extends PageObject {
 
-	@FindBy(xpath="//app-terms-of-service")
+	@FindBy(xpath="//app-terms-of-service//span[contains(text(),'terms of use')]")
 	WebElement tnc;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//app-terms-of-service//span[contains(text(),'release of medical information')]")
 	WebElement rmi;
 	
 	public UserTermsPage(WebDriver driver, WebDriverWait wait) {

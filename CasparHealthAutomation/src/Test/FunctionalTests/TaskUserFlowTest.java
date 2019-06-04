@@ -15,7 +15,7 @@ public class TaskUserFlowTest extends FunctionalTest{
 	String baseURL= "https://beta.caspar-health.com/en/#/user/sign_in";
 
 	@Test
-	public void userFlow() {
+	public void userFlow() throws InterruptedException {
 
 		//Step 1) Navigate to “ https://beta.caspar-health.com/en/#/user/sign_in ”
 		driver.get(baseURL);
@@ -57,7 +57,6 @@ public class TaskUserFlowTest extends FunctionalTest{
 		
 		//Step 5) Logout the user
 		loginPage = therapistDB.signout();
-
 		
 		//Step 6) Login as the new patient on the same url like provided in step 1
 		loginPage.fillUserName(username);

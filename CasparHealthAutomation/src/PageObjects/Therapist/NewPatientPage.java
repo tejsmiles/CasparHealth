@@ -11,27 +11,27 @@ import PageObjects.Common.PageObject;
 public class NewPatientPage extends PageObject {
 
 	//First Name: mat-input-26 
-	@FindBy(id="mat-input-26")
+	@FindBy(id="mat-input-7")
 	WebElement inputFirstName;
 
 	//Last Name: mat-input-27 
-	@FindBy(id="mat-input-27")
+	@FindBy(id="mat-input-8")
 	WebElement inputLastName;
 
 	//Day: mat-select-5
-	@FindBy(id="mat-select-5")
+	@FindBy(id="mat-select-1")
 	WebElement selectDay;
 
 	//Month: mat-select-6
-	@FindBy(id="mat-select-6")
+	@FindBy(id="mat-select-2")
 	WebElement selectMonth;
 
 	//Year: mat-select-7
-	@FindBy(id="mat-select-7")
+	@FindBy(id="mat-select-3")
 	WebElement selectYear;
 
 	//Country: mat-select-8
-	@FindBy(id="mat-select-8")
+	@FindBy(id="mat-select-4")
 	WebElement selectCountry;
 
 	@FindBy(xpath="//button[contains(text(), 'SAVE')]")
@@ -64,7 +64,8 @@ public class NewPatientPage extends PageObject {
 		this.selectCountry.sendKeys(country);
 	}
 	
-	public NewUserCredentialsPage newPatientSave() {
+	public NewUserCredentialsPage newPatientSave() throws InterruptedException {
+		Thread.sleep(1000);
 		this.buttonSave.click();
 		return new NewUserCredentialsPage(driver, wait, this.therapistDB);
 	}
