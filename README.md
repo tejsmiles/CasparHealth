@@ -24,3 +24,10 @@ Screencast of execution with eclipse: https://youtu.be/gPIKZCm1kuM
 
 I have also set up a basic structure of BDD solution in CasperHealthBDD https://github.com/tejsmiles/CasparHealthBDD
 
+
+My Observations:
+There are some bugs that I have come across and some challenges that reflected in some coding decisions that I have made:
+    For example in "CasparHealthAutomation/src/PageObjects/Therapist/NewPatientPage.java" I have used Thread.sleep(1000); instead of waiting for the element
+
+Instead of listing all the points here it will be nice to discuss them for better understanding of intentions.
+
